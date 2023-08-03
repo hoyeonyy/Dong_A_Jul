@@ -1,4 +1,0 @@
-package project.Dong_A_Jul.entity;
-
-public class HoHo {
-}

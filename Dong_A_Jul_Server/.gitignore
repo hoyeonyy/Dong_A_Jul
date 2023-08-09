@@ -27,6 +27,8 @@ out/
 !**/src/test/**/out/
 
 *.yml
+generated
+*.gradle
 
 ### NetBeans ###
 /nbproject/private/

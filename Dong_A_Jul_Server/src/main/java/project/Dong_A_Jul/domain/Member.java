@@ -46,4 +46,10 @@ public class Member {
     @OneToOne(mappedBy = "member", fetch = FetchType.LAZY)
     private Admin admin;
 
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Application> applications = new ArrayList<>();
+
+    @OneToOne(mappedBy = "member", fetch = FetchType.LAZY)
+    private OriginalMember originalMember;
+
 }

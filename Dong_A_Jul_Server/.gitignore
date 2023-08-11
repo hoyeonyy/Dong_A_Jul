@@ -28,7 +28,7 @@ out/
 
 *.yml
 generated
-*.gradle
+build.gradle
 
 ### NetBeans ###
 /nbproject/private/

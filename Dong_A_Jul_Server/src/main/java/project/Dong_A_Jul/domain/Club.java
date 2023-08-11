@@ -19,6 +19,9 @@ public class Club {
     private String picture;
     private String tag;
 
+    private String oneline;
+    private String location;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "introduction_id")
     private Introduction introduction;
@@ -37,4 +40,8 @@ public class Club {
 
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
     private List<Application> applications = new ArrayList<>();
+
+    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
+    private List<OriginalMember> originalMembers = new ArrayList<>();
+
 }

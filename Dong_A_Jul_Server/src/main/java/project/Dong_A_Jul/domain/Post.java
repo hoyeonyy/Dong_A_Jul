@@ -3,6 +3,7 @@ package project.Dong_A_Jul.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Post {
     private String title;
 
     private String content;
+    private LocalDateTime created;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

@@ -19,9 +19,6 @@ public class Question {
     @Enumerated(EnumType.STRING)
     private QuestionType questionType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "application_id")
-    private Application application;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
     private List<Option> options = new ArrayList<>();

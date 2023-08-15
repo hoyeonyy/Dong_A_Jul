@@ -12,6 +12,7 @@ import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.domain.Picture;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberJpaRepository;
+import project.Dong_A_Jul.service.ClubLikeService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ClubApiController {
 
     private final ClubJpaRepository clubJpaRepository;
     private final MemberJpaRepository memberJpaRepository;
+    private final ClubLikeService clubLikeService;
 
     @PostMapping("/main/introduction/")
     public ResponseEntity<IntroductionResponseDto> clickIntroduction(@RequestBody IntroductionRequestDto introductionRequestDto){
@@ -37,7 +39,7 @@ public class ClubApiController {
         introductionResponseDto.logo = findClub.get().getPicture();
         introductionResponseDto.tag = findClub.get().getTag();
         introductionResponseDto.likes = findClub.get().getCountOfLikes(); //
-//        introductionResponseDto.memberlike = ; // 멤버가 해당 클럽에 눌렀는지 확인해야함. 좋아요 서비스단에서 구성할수있곘다.
+        introductionResponseDto.memberlike = clubLikeService.MemberLikeCheck(findMember.get(), findClub.get()); // 멤버가 해당 클럽에 눌렀는지 확인해야함. 좋아요 서비스단에서 구성할수있곘다.
         introductionResponseDto.picture = findClub.get().getIntroduction().getPictures();
         introductionResponseDto.content = findClub.get().getIntroduction().getContent();
 
@@ -65,7 +67,7 @@ public class ClubApiController {
         private String logo; // Club picture 필드명 변경요구 - 52번째 Picture 모집글 사진과 겹친다고 생각됌
         private String tag;
         private Long likes;
-        private Long memberlike;
+        private String memberlike;
         private List<Picture> picture; // 모집글 사진
         private String content;
 

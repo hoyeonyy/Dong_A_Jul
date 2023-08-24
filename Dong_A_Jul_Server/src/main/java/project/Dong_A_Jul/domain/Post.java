@@ -20,6 +20,9 @@ public class Post {
     private String content;
     private LocalDateTime created;
 
+    @Enumerated(EnumType.STRING)
+    private PostType postType;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;

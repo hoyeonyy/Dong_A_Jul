@@ -10,83 +10,56 @@ import org.springframework.web.bind.annotation.RestController;
 import project.Dong_A_Jul.domain.Club;
 import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.domain.Picture;
+import project.Dong_A_Jul.domain.Post;
+import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberJpaRepository;
+import project.Dong_A_Jul.repository.PostJpaRepository;
 import project.Dong_A_Jul.service.ClubLikeService;
+import project.Dong_A_Jul.service.PostService;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/club")
 @RequiredArgsConstructor
 public class ClubApiController {
 
     private final ClubJpaRepository clubJpaRepository;
     private final MemberJpaRepository memberJpaRepository;
     private final ClubLikeService clubLikeService;
+    private final PostService postService;
+    private final PostJpaRepository postJpaRepository;
 
-    @PostMapping("/main/introduction/")
-    public ResponseEntity<IntroductionResponseDto> clickIntroduction(@RequestBody IntroductionRequestDto introductionRequestDto){
-        Optional<Club> findClub = clubJpaRepository.findById(introductionRequestDto.getClubId());
-        Optional<Member> findMember = memberJpaRepository.findById(introductionRequestDto.getMemberId());
-        IntroductionResponseDto introductionResponseDto = new IntroductionResponseDto();
-
-        introductionResponseDto.recruitmentstart = findClub.get().getIntroduction().getRecruitmentStart();
-        introductionResponseDto.recruitmentend = findClub.get().getIntroduction().getRecruitmentEnd();
-        introductionResponseDto.name = findClub.get().getName();
-        introductionResponseDto.logo = findClub.get().getPicture();
-        introductionResponseDto.tag = findClub.get().getTag();
-        introductionResponseDto.likes = findClub.get().getCountOfLikes(); //
-        introductionResponseDto.memberlike = clubLikeService.MemberLikeCheck(findMember.get(), findClub.get()); // 멤버가 해당 클럽에 눌렀는지 확인해야함. 좋아요 서비스단에서 구성할수있곘다.
-        introductionResponseDto.picture = findClub.get().getIntroduction().getPictures();
-        introductionResponseDto.content = findClub.get().getIntroduction().getContent();
-
-
-
-
-        return ResponseEntity.ok(introductionResponseDto);
+    @PostMapping("/main/introduction/") // 모집글
+    public ResponseEntity<IntroductionResponse> clickIntroduction(@RequestBody IntroductionRequest introductionRequest){
+        IntroductionResponse introductionResponse = postService.updateIntroduction(introductionRequest);
+        return ResponseEntity.ok(introductionResponse);
     }
 
+    @PostMapping("/main/notice")
+    public ResponseEntity<NoticeRespones> clickNotice(@RequestBody NoticeRequest noticeRequest){
 
-    @Data
-    public static class IntroductionRequestDto{
-        private Long memberId;
-        private Long clubId;
-
-        public IntroductionRequestDto() {
-        }
-    }
-
-    @Data
-    public static class IntroductionResponseDto{
-        private LocalDateTime recruitmentstart;
-        private LocalDateTime recruitmentend;
-        private String name;
-        private String logo; // Club picture 필드명 변경요구 - 52번째 Picture 모집글 사진과 겹친다고 생각됌
-        private String tag;
-        private Long likes;
-        private String memberlike;
-        private List<Picture> picture; // 모집글 사진
-        private String content;
-
-        public IntroductionResponseDto() {
-        }
-    }
-
-
-
-//    동아리 id
-//    맴버 id
+        NoticeRespones noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
 //
-//- 모집시작일
-//- 모집 마감일
-//- 동아리 이름
-//- 동아리 로고
-//- 태그
-//- 좋아요 카운트
-//- 좋아요 여부
-//- 모집글 사진
-//- 모집글 내용
+//        Optional<Club> findClub = clubJpaRepository.findById(noticeRequestDto.getClubId());
+//        List<NoticeResponse> noticeResponses = postService.updateNotice();
+//
+//        noticeResponseDto.postDtos.add(postJpaRepository.findAllByClubAndPostType(findClub.get(),noticeRequestDto.postType));
+//        가져온 List<post>를 가지고 PostDto에 담은다음에 List<PostDto>를 반환해서 이쪽으로 가져오면 이놈에 postDtos에 넣어서 반환하면되겠다. 위 과정들을 서비스단에서 관리해보자
+
+        return ResponseEntity.ok(noticeResponses);
+    }
+
+    @PostMapping("/main/post")
+    public ResponseEntity<NoticeRespones> clickPost(@RequestBody NoticeRequest noticeRequest){
+
+        NoticeRespones noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
+//
+        return ResponseEntity.ok(noticeResponses);
+    }
+
 }

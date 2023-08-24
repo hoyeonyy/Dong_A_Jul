@@ -1,11 +1,9 @@
 package project.Dong_A_Jul.service;
 
-import com.mysql.cj.protocol.x.Notice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.Dong_A_Jul.domain.Club;
-import project.Dong_A_Jul.domain.ClubLike;
 import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.domain.Post;
 import project.Dong_A_Jul.dto.*;
@@ -13,7 +11,6 @@ import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberJpaRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,10 +40,10 @@ public class PostService {
         return introductionResponse;
     }
 
-    public NoticeRespones ClickNoticeOrPost(NoticeRequest noticeRequest){
+    public NoticeResponses ClickNoticeOrPost(NoticeRequest noticeRequest){
         Optional<Club> findClub = clubJpaRepository.findById(noticeRequest.getClubId());
 
-        NoticeRespones noticeRespones = new NoticeRespones();
+        NoticeResponses noticeResponses = new NoticeResponses();
         List<Post> posts = postJpaRepository.findAllByClubAndPostType(findClub.get(),noticeRequest.getPostType());
 
         for(Post post : posts){
@@ -55,9 +52,9 @@ public class PostService {
                     .content(post.getContent())
                     .created(post.getCreated())
                     .build();
-            noticeRespones.noticeResponses.add(noticeResponse);
+            noticeResponses.noticeResponses.add(noticeResponse);
         }
 
-        return noticeRespones;
+        return noticeResponses;
     }
 }

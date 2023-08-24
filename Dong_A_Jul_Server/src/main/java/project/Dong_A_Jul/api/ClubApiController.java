@@ -1,27 +1,17 @@
 package project.Dong_A_Jul.api;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.Dong_A_Jul.domain.Club;
-import project.Dong_A_Jul.domain.Member;
-import project.Dong_A_Jul.domain.Picture;
-import project.Dong_A_Jul.domain.Post;
 import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberJpaRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 import project.Dong_A_Jul.service.ClubLikeService;
 import project.Dong_A_Jul.service.PostService;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/club")
@@ -41,9 +31,9 @@ public class ClubApiController {
     }
 
     @PostMapping("/main/notice")
-    public ResponseEntity<NoticeRespones> clickNotice(@RequestBody NoticeRequest noticeRequest){
+    public ResponseEntity<NoticeResponses> clickNotice(@RequestBody NoticeRequest noticeRequest){
 
-        NoticeRespones noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
+        NoticeResponses noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
 //
 //        Optional<Club> findClub = clubJpaRepository.findById(noticeRequestDto.getClubId());
 //        List<NoticeResponse> noticeResponses = postService.updateNotice();
@@ -55,10 +45,10 @@ public class ClubApiController {
     }
 
     @PostMapping("/main/post")
-    public ResponseEntity<NoticeRespones> clickPost(@RequestBody NoticeRequest noticeRequest){
+    public ResponseEntity<NoticeResponses> clickPost(@RequestBody NoticeRequest noticeRequest){
 
-        NoticeRespones noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
-//
+        NoticeResponses noticeResponses = postService.ClickNoticeOrPost(noticeRequest);
+
         return ResponseEntity.ok(noticeResponses);
     }
 

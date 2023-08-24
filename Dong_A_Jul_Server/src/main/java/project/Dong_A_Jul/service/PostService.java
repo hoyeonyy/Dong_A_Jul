@@ -52,7 +52,7 @@ public class PostService {
                     .content(post.getContent())
                     .created(post.getCreated())
                     .build();
-            noticeResponses.noticeResponses.add(noticeResponse);
+            noticeResponses.getNoticeResponses().add(noticeResponse);
         }
 
         return noticeResponses;

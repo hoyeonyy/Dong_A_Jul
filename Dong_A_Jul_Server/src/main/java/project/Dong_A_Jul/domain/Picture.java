@@ -29,4 +29,12 @@ public class Picture {
     private Post post;
 
 
+
+    public void setPost(Post post) {
+        if(this.post != null){
+            this.post.getPictures().remove(this);
+        }
+        this.post = post;
+        post.getPictures().add(this);
+    }
 }

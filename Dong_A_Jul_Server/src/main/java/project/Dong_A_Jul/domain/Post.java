@@ -48,4 +48,11 @@ public class Post {
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();
 
+    public void addPicture(Picture picture){
+        this.pictures.add(picture);
+        if(picture.getPost() != this){
+            picture.setPost(this);
+        }
+    }
+
 }

@@ -77,9 +77,9 @@ public class PostService {
 
             for(MultipartFile image : createPostRequest.getPictures()){
                 Picture picture = Picture.builder()
-                        .post(post)
                         .imageData(image.getBytes())
                         .build();
+                picture.setPost(post);
                 pictureRepository.save(picture);
             }
 

@@ -1,6 +1,7 @@
 package project.Dong_A_Jul.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.Formula;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 public class Club {
+
 
     @Id @GeneratedValue
     @Column(name = "club_id")

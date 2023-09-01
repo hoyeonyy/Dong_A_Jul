@@ -5,13 +5,8 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.Dong_A_Jul.domain.Club;
-import project.Dong_A_Jul.domain.ClubLike;
-import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
-import project.Dong_A_Jul.repository.MemberJpaRepository;
-
-import java.util.List;
+import project.Dong_A_Jul.repository.MemberRepository;
 
 @Service
 @Transactional(readOnly = true)
@@ -19,7 +14,7 @@ import java.util.List;
 public class ClubService {
 
     private final EntityManager em;
-    private final MemberJpaRepository memberJpaRepository;
+    private final MemberRepository memberRepository;
     private final ClubJpaRepository clubJpaRepository;
 
 

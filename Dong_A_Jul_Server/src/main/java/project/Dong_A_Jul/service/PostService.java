@@ -8,7 +8,7 @@ import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.domain.Post;
 import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
-import project.Dong_A_Jul.repository.MemberJpaRepository;
+import project.Dong_A_Jul.repository.MemberRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 
 import java.util.List;
@@ -19,13 +19,13 @@ import java.util.Optional;
 @Transactional
 public class PostService {
     private final ClubJpaRepository clubJpaRepository;
-    private final MemberJpaRepository memberJpaRepository;
+    private final MemberRepository memberRepository;
     private final PostJpaRepository postJpaRepository;
     private final ClubLikeService clubLikeService;
 
     public IntroductionResponse updateIntroduction(IntroductionRequest introductionRequest){
         Optional<Club> findClub = clubJpaRepository.findById(introductionRequest.getClubId());
-        Optional<Member> findMember = memberJpaRepository.findById(introductionRequest.getMemberId());
+        Optional<Member> findMember = memberRepository.findById(introductionRequest.getMemberId());
         IntroductionResponse introductionResponse = IntroductionResponse.builder()
                 .recruitmentstart(findClub.get().getIntroduction().getRecruitmentStart())
                 .recruitmentstart(findClub.get().getIntroduction().getRecruitmentEnd())

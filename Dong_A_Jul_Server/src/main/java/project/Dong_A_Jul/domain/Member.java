@@ -1,14 +1,20 @@
 package project.Dong_A_Jul.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
+@Builder
 public class Member {
+    protected Member() {
+    }
 
     @Id @GeneratedValue
     @Column(name = "member_id")
@@ -49,7 +55,14 @@ public class Member {
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Application> applications = new ArrayList<>();
 
-    @OneToOne(mappedBy = "member", fetch = FetchType.LAZY)
-    private OriginalMember originalMember;
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<OriginalMember> originalMembers = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_authority",
+            joinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "member_id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+    private Set<Authority> authorities;
 
 }

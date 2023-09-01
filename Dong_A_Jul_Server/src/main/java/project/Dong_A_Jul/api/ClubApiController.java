@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
-import project.Dong_A_Jul.repository.MemberJpaRepository;
+import project.Dong_A_Jul.repository.MemberRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 import project.Dong_A_Jul.service.ClubLikeService;
 import project.Dong_A_Jul.service.PostService;
@@ -19,7 +19,7 @@ import project.Dong_A_Jul.service.PostService;
 public class ClubApiController {
 
     private final ClubJpaRepository clubJpaRepository;
-    private final MemberJpaRepository memberJpaRepository;
+    private final MemberRepository memberRepository;
     private final ClubLikeService clubLikeService;
     private final PostService postService;
     private final PostJpaRepository postJpaRepository;

@@ -3,15 +3,15 @@ package project.Dong_A_Jul.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.Dong_A_Jul.domain.Club;
-import project.Dong_A_Jul.domain.Member;
-import project.Dong_A_Jul.domain.Post;
-import project.Dong_A_Jul.domain.PostLike;
+import org.springframework.web.multipart.MultipartFile;
+import project.Dong_A_Jul.domain.*;
 import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberRepository;
+import project.Dong_A_Jul.repository.PictureRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +24,8 @@ public class PostService {
     private final MemberRepository memberRepository;
     private final PostJpaRepository postJpaRepository;
     private final ClubLikeService clubLikeService;
+
+    private final PictureRepository pictureRepository;
 
     public IntroductionResponse updateIntroduction(IntroductionRequest introductionRequest){
         Optional<Club> findClub = clubJpaRepository.findById(introductionRequest.getClubId());
@@ -61,24 +63,38 @@ public class PostService {
     }
 
 
-    public void createPost(CreatePostRequest createPostRequest){
+    public CreatePostResponse createPost(CreatePostRequest createPostRequest){
         Optional<Club> findClub = clubJpaRepository.findById(createPostRequest.getClubId());
         Optional<Member> findMember = memberRepository.findById(createPostRequest.getMemberId());
         try{
             Post post = Post.builder()
                     .club(findClub.get())
                     .member(findMember.get())
-                    .postLikes(new PostLike())
-                    .created(LocalDateTime.now())
-                    .comments(new comment())
                     .content(createPostRequest.getContent())
                     .postType(createPostRequest.getPostType())
-                    .pictures(createPostRequest.getPictures())
-                            .build();
+                    .created(LocalDateTime.now())
+                    .build();
 
-            postJpaRepository.save(postDto);
+            for(MultipartFile image : createPostRequest.getPictures()){
+                Picture picture = Picture.builder()
+                        .post(post)
+                        .imageData(image.getBytes())
+                        .build();
+                pictureRepository.save(picture);
+            }
+
+            postJpaRepository.save(post);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
+        CreatePostResponse createPostResponse = new CreatePostResponse();
+        List<Post> allPost = postJpaRepository.findAllByClubAndPostType(findClub.get(),PostType.POST);
 
+        for(Post post : allPost){
+            createPostResponse.getPosts().add(post);
+        }
+
+        return createPostResponse;
     }
 }

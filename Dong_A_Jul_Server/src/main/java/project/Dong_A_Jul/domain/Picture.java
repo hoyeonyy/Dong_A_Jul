@@ -17,7 +17,8 @@ public class Picture {
     @Column(name = "picture_id")
     private Long id;
 
-    private String url;
+    @Lob //@Lob 어노테이션을 사용하면 대형 객체를 효과적으로 데이터베이스에 저장하고 조회할 수 있습니다.
+    private byte[] imageData;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "introduction_id")

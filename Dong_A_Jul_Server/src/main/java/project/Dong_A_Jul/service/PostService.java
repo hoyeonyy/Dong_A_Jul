@@ -6,11 +6,13 @@ import org.springframework.transaction.annotation.Transactional;
 import project.Dong_A_Jul.domain.Club;
 import project.Dong_A_Jul.domain.Member;
 import project.Dong_A_Jul.domain.Post;
+import project.Dong_A_Jul.domain.PostLike;
 import project.Dong_A_Jul.dto.*;
 import project.Dong_A_Jul.repository.ClubJpaRepository;
 import project.Dong_A_Jul.repository.MemberRepository;
 import project.Dong_A_Jul.repository.PostJpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,5 +58,27 @@ public class PostService {
         }
 
         return noticeResponses;
+    }
+
+
+    public void createPost(CreatePostRequest createPostRequest){
+        Optional<Club> findClub = clubJpaRepository.findById(createPostRequest.getClubId());
+        Optional<Member> findMember = memberRepository.findById(createPostRequest.getMemberId());
+        try{
+            Post post = Post.builder()
+                    .club(findClub.get())
+                    .member(findMember.get())
+                    .postLikes(new PostLike())
+                    .created(LocalDateTime.now())
+                    .comments(new comment())
+                    .content(createPostRequest.getContent())
+                    .postType(createPostRequest.getPostType())
+                    .pictures(createPostRequest.getPictures())
+                            .build();
+
+            postJpaRepository.save(postDto);
+        }
+
+
     }
 }

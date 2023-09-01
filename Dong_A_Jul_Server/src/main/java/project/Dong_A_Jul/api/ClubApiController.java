@@ -14,7 +14,7 @@ import project.Dong_A_Jul.service.ClubLikeService;
 import project.Dong_A_Jul.service.PostService;
 
 @RestController
-@RequestMapping("/api/v1/club")
+@RequestMapping("/api/club")
 @RequiredArgsConstructor
 public class ClubApiController {
 

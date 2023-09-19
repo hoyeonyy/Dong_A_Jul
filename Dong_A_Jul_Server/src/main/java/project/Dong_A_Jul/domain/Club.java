@@ -23,21 +23,14 @@ public class Club {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
+
     private String picture;
+
     private String tag;
 
     private String oneline;
-    private String location;
-
-
-
-
 
 }
-
-/**
- * 하이버네이트의 Fomula 어노테이션을 사용하여 "likes"라는 가상의 컬럼을 만들어 하위쿼리를 작성하여 카운트문제를 해결하려고했다.
- * [참고내용]
- * https://www.popit.kr/jpa-엔터티-카운트-성능-개선하기/
- */

@@ -27,6 +27,7 @@ public class Club {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    @Column(length=1000)
     private String picture;
 
     private String tag;

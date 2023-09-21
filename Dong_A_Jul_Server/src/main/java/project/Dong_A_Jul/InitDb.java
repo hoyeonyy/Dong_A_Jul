@@ -41,7 +41,7 @@ public class InitDb {
                     .name("더블랙")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0273a558-1d1d-4ae0-b5cf-801c73d55796/더블랙.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=ccd0b52f1ad8cb8feff4d5482a2ed47c5a7363cfca3bf63a0e21d8712b76800b&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("2006년 설립된 중앙 보컬동아리 더블랙입니다. 저희는 노래를 좋아하는 학생들이 모여 다양한 장르를 공연하는 동아리입니다. 화음을 맞춰 공연해보고 싶거나 노래를 좋아하는 분이라면 누구든 환영입니다.")
                     .build();
 
@@ -51,7 +51,7 @@ public class InitDb {
                     .name("사운드플러스")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5bced41e-b444-476f-9b84-d1915455973d/사운드플러스.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=7f65fb901c5363d032f805d54bdd65813cb5ceaa394c8a0fe2ab984df5ad6f04&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("올해로 32기가 된 밴드 동아리입니다. 동아리명처럼 부원들이 서로 교류하며 좋은 공연을 해오고 있습니다.")
                     .build();
 
@@ -61,7 +61,7 @@ public class InitDb {
                     .name("세종극회")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/36df74c4-0f77-482e-9ab2-45f7ac654911/세종극회.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=0ad14056ee3dd3628c5df4883272d7c17bc8456bbae93933ca36b7c068e8017d&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("중앙 연극동아리 ‘세종극회'입니다. 세종극회는 연기, 연출, 소품 등의 분야가 모여 공연 준비를 하여 정기적인 연극 공연을 올립니다.")
                     .build();
 
@@ -71,7 +71,7 @@ public class InitDb {
                     .name("터벌림")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c88e924f-a5a4-46fb-8d03-c5cc3794e2ad/터벌림_로고.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=c25f47716a3aaa5c0c005aae8b4fd7054e6de7be96b19eed7d8d4fc54f110e00&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("1984년 창립된 중앙 풍물동아리입니다. 악기 연습, 공연 준비, 전수 등의 활동을 합니다. 우리의 얼을 찾고 넓히며 국악의 흥겨움을 전합니다.")
                     .build();
 
@@ -81,7 +81,7 @@ public class InitDb {
                     .name("소울트레인")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1ce76d91-b9bd-49fc-a236-ac3d8d196909/소울트레인.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=6d3855c9e02f521b4e1f597b9677bb271f536f9a9cab858e9e585591ae08b5a3&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("2005년 설립된 중앙흑인음악동아리 소울트레인입니다. 주된 활동은 교내 행사에서의 공연과 외부공연장에서의 정기공연이며, 곡 작업 및 스터디, 공연을 위한 연습을 진행합니다.")
                     .build();
 
@@ -91,7 +91,7 @@ public class InitDb {
                     .name("PAGE7")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5e502584-300a-4ec8-bb10-e70c4a8a037a/페이지세븐.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=66810651294d214b0ebd7b9da900949fed34be8fa634bc6aa2e7a848cdc8a2f4&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("락, 어쿠스틱, 발라드, 팝 다해버리는 중앙 밴드동아리 PAGE7입니다. OT, 대동제, 힘미제 등 교내 행사 무대, 타 학교 협동 공연과 초심자들을 위한 악기 레슨을 진행하고 있습니다.")
                     .build();
 
@@ -102,7 +102,7 @@ public class InitDb {
                     .name("인트로")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a3d16a6d-2ff2-4ffa-a919-d1b01bbfacfe/인트로.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=9d424cd10348609e9271fa47d1ec525e40b9ecacf6f4c35b0997b1295d932806&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("춤과 랩을 즐기며 열정이 넘치는 중앙힙합동아리로, 교내행사 및 자체 정기공연을 통해 대학생활에 잊지못할 추억을 남겨드립니다!")
                     .build();
 
@@ -113,7 +113,7 @@ public class InitDb {
                     .name("늘혬코러스")
                     .category(Category.GY)
                     .tag("공연")
-                    .picture("")
+                    .picture("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/792fa45a-59c5-4b4a-9044-acbad2a48973/늘혬코러스.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230919%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230919T112419Z&X-Amz-Expires=3600&X-Amz-Signature=78ad52aaae7508f0e1006d7d84d769826bed4ddd82b4482f18078a11d1ec1835&X-Amz-SignedHeaders=host&x-id=GetObject")
                     .oneline("1988년 설립된 중앙 밴드동아리 늘혬코러스입니다. 합주 및 스터디를 통해 정기적으로 공연을 진행하고 있습니다.")
                     .build();
 

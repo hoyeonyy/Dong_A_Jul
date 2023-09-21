@@ -12,7 +12,7 @@ import project.Dong_A_Jul.service.ClubService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1")
+@RequestMapping("/api/v1")
 public class ClubApi {
 
     private final ClubService clubService;

@@ -53,6 +53,19 @@ public class ClubService {
                     .build();
             allClubResponses.getList().add(build);
         }
+
+//        result.stream() // 리스트를 스트림으로 변환합니다.
+//                .map(c -> AllClubResponse.builder() // 각 'Club' 객체 c를 AllClubResponse 객체로 변환합니다. map연산은 각 요소를 변환하고 새로운 스트림을 생성합니다.
+//                        .tag(c.getTag())
+//                        .oneline(c.getOneline())
+//                        .name(c.getName())
+//                        .image(c.getPicture())
+//                        .category(c.getCategory())
+//                        .build())
+//                .forEach(allClubResponses.getList()::add); // 각 변환된 AllClubResponse 객체를 allClubResponses 객체의 'list' 필드에 추가합니다.
+        // Club 객체를 AllClubResponse 객체로 변환하고, 이 객체들을 allClubResponses의 list객체에 추가하는 작업입니다.
+
+
         return allClubResponses;
     }
 

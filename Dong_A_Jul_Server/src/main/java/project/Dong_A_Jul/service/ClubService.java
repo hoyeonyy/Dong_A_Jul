@@ -49,6 +49,7 @@ public class ClubService {
                     .oneline(c.getOneline())
                     .name(c.getName())
                     .image(c.getPicture())
+                    .category(c.getCategory())
                     .build();
             allClubResponses.getList().add(build);
         }

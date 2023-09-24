@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.Dong_A_Jul.domain.Club;
 import project.Dong_A_Jul.dto.AllClubResponse;
 import project.Dong_A_Jul.dto.AllClubResponses;
+import project.Dong_A_Jul.repository.ClubQueryRepository;
 import project.Dong_A_Jul.repository.ClubRepository;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 public class ClubService {
 
     private final ClubRepository clubRepository;
+    private final ClubQueryRepository clubQueryRepository;
 
     public AllClubResponses findAllClub(){
 
@@ -34,6 +36,22 @@ public class ClubService {
             allClubResponses.getList().add(allClubResponse);
         }
 
+        return allClubResponses;
+    }
+    public AllClubResponses findByName(String name){
+
+        List<Club> result = clubQueryRepository.findClubByName(name);
+        AllClubResponses allClubResponses = new AllClubResponses();
+
+        for (Club c : result) {
+            AllClubResponse build = AllClubResponse.builder()
+                    .tag(c.getTag())
+                    .oneline(c.getOneline())
+                    .name(c.getName())
+                    .image(c.getPicture())
+                    .build();
+            allClubResponses.getList().add(build);
+        }
         return allClubResponses;
     }
 

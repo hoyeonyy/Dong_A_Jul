@@ -28,7 +28,7 @@
 
 ## 🛠️ Tech Stack
 
- `Spring`  `Flutter` `AI` `Figma`  `Mysql` `AWS EC2` `JPA` `AWS S3`
+ `Spring`  `Flutter` `Figma`  `Mysql` `AWS EC2` `JPA` `AWS S3`
 
 ## 🤔 Learned
 
